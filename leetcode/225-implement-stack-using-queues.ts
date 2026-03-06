@@ -5,32 +5,26 @@ class MyStack {
   private queue: number[] = []
 
   push(x: number): void {
+    let length = this.queue.length
     this.queue.push(x)
+    while (length > 0) {
+      this.queue.push(this.pop())
+      length--
+    }
   }
 
   pop(): number {
-    const auxQueue: number[] = []
-    while (this.queue.length > 1) {
-      auxQueue.push(this.queue.shift()!)
-    }
-    const n = this.queue.shift()!
-    this.queue = [...auxQueue]
-
-    return n
+    return this.queue.shift()!
   }
 
   top(): number {
-    const n = this.pop()
-    this.push(n)
-    return n
+    return this.queue[0]
   }
 
   empty(): boolean {
     return this.queue.length === 0
   }
 }
-
-// [1, 2, 3]
 
 const myStack = new MyStack();
 myStack.push(1);

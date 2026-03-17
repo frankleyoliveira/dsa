@@ -1,3 +1,5 @@
+# https://www.w3schools.com/dsa/dsa_algo_bubblesort.php
+
 my_array = [7, 3, 9, 12, 11]
 
 n = len(my_array)
